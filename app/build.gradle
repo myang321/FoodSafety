@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "app.tabsample"
-        minSdkVersion 7
-        targetSdkVersion 7
+        minSdkVersion 14
+        targetSdkVersion 14
     }
 
     buildTypes {

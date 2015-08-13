@@ -12,7 +12,7 @@ import app.tabsample.R;
 public class DataActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.optionspage);
+        setContentView(R.layout.activity_data);
         
         
     }

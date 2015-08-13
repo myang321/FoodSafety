@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detection_activity_layout"
     android:layout_height="fill_parent"
     android:layout_width="fill_parent">
 
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/detection_layer1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
@@ -14,17 +17,4 @@
             android:text="检测"
             android:onClick="startDetection" />
     </RelativeLayout>
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-
-        <ListView
-            android:id="@+id/listview_history"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
-
-
 </FrameLayout>
