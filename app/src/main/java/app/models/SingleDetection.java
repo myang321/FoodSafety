@@ -3,6 +3,8 @@ package app.models;
 import java.util.ArrayList;
 import java.util.Date;
 
+import app.delegates.Util;
+
 /**
  * Created by Steve on 8/11/2015.
  */
@@ -16,7 +18,7 @@ public class SingleDetection {
 
     @Override
     public String toString() {
-        return this.date + ": " + this.detectionType;
+        return Util.dateToStringShort(date) + ": " + this.detectionType;
     }
 
     public Date getDate() {

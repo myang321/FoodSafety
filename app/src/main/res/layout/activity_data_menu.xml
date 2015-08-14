@@ -11,7 +11,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="历史"
-        android:onClick="showMenuPage" />
+        android:onClick="showHistory" />
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/button_show_breast_milk"
@@ -27,7 +27,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="奶粉"
-        android:onClick="showMenuPage" />
+        android:onClick="showMilkPowder" />
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/button_show_supplementary_food"
@@ -35,6 +35,6 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="副食"
-        android:onClick="showMenuPage" />
+        android:onClick="showSupplementaryFood" />
 
 </LinearLayout>

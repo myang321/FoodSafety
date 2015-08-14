@@ -25,7 +25,7 @@ public class ElementAnalysis {
             if (i >= LIMIT)
                 break;
             ElementResult er = timeline.get(i);
-            String dateStr = Util.dateToString(er.getDate());
+            String dateStr = Util.dateToStringShort(er.getDate());
             str.append(" " + dateStr + ":" + er.getValue());
         }
         return elementName + " " + str;

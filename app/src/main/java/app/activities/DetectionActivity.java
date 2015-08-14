@@ -9,8 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import app.delegates.SharedPreferenceDelegate;
+import app.delegates.Util;
 import app.json.JsonParser;
 import app.models.ElementDetail;
 import app.models.SingleDetection;
@@ -43,7 +45,8 @@ public class DetectionActivity extends Activity {
 
     // mock detection process
     public SingleDetection getDetectionResult() {
-        String json = "{ \"date\":\"2015-08-15 16:56:45\", \"type\":\"breast_milk\", \"detail\":[ { \"name\":\"ruqing_protein\", \"value\":1.5 }, { \"name\":\"lao_protein\", \"value\":1.5 }, { \"name\":\"rutie_protein\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_slga\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_igg1\", \"value\":1.5 }, { \"name\":\"folic_acid\", \"value\":1.5 } ] }";
+        String json = "{ \"date\":\"%s\", \"type\":\"breast_milk\", \"detail\":[ { \"name\":\"ruqing_protein\", \"value\":1.5 }, { \"name\":\"lao_protein\", \"value\":1.5 }, { \"name\":\"rutie_protein\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_slga\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_igg1\", \"value\":1.5 }, { \"name\":\"folic_acid\", \"value\":1.5 } ] }";
+        json = String.format(json, Util.dateToString(new Date()));
         SingleDetection sd = JsonParser.parseSingleDetection(json);
         return sd;
     }

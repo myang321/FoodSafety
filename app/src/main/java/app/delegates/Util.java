@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.DateFormat;
 import java.sql.Timestamp;
+
 /**
  * Created by Steve on 8/11/2015.
  */
@@ -21,8 +22,15 @@ public class Util {
         return date;
     }
 
-    public static String dateToString(Date date){
-        Timestamp ts=new Timestamp(date.getTime());
+    public static String dateToString(Date date) {
+        Timestamp ts = new Timestamp(date.getTime());
         return ts.toString();
     }
+
+    public static String dateToStringShort(Date date) {
+        DateFormat df = new SimpleDateFormat("MM-dd");
+        String str = df.format(date);
+        return str;
+    }
+
 }
