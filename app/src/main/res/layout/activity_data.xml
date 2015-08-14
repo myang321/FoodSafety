@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_height="fill_parent" android:layout_width="fill_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical">
 
-	<LinearLayout android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_width="fill_parent">
-		<EditText android:layout_alignParentLeft="true"
-			android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="fill_parent" android:hint="Search Text"/>
-		<Button android:layout_height="wrap_content"
-			android:layout_width="wrap_content" android:layout_alignParentRight="true" android:text="Search"/>
-	</LinearLayout>
-</RelativeLayout>
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/button_data_more"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="more"
+        android:onClick="showMenuPage" />
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/data_activity_layout"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ListView
+                android:id="@+id/listview_data"
+                android:background="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>
+

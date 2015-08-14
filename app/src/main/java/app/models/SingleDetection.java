@@ -11,6 +11,13 @@ public class SingleDetection {
     private Date date;
     private String detectionType;
     private ArrayList<ElementDetail> details;
+    private String jsonData;
+    private int myHashCode;
+
+    @Override
+    public String toString() {
+        return this.date + ": " + this.detectionType;
+    }
 
     public Date getDate() {
         return date;
@@ -24,23 +31,40 @@ public class SingleDetection {
         return details;
     }
 
-    public SingleDetection(String detectionType, ArrayList<ElementDetail> details) {
+    public String getJsonData() {
+        return jsonData;
+    }
+
+    public SingleDetection(String detectionType, ArrayList<ElementDetail> details, String jsonData, int myHashCode) {
         this.date = new Date();
         this.detectionType = detectionType;
         this.details = details;
+        this.jsonData = jsonData;
+//        if (myHashCode == 0)
+//            myHashCode = hashCode();
+        this.myHashCode = myHashCode;
     }
 
-    public SingleDetection(Date date, String detectionType, ArrayList<ElementDetail> details) {
-        this(detectionType, details);
+    public SingleDetection(Date date, String detectionType, ArrayList<ElementDetail> details, String jsonData, int myHashCode) {
+        this(detectionType, details, jsonData, myHashCode);
         this.date = date;
     }
 
-    public ArrayList<String> detailsToString() {
-        ArrayList<String> arrayList = new ArrayList<String>();
-        for (ElementDetail ed : details) {
-            arrayList.add(ed.toString());
+    public TypeAnalysis toTypeAnalysis() {
+        TypeAnalysis typeAnalysis = new TypeAnalysis(this.detectionType);
+        for (ElementDetail ed : this.getDetails()) {
+            ElementAnalysis elementAnalysis = new ElementAnalysis(ed.getName(), new ElementResult(this.getDate(), ed.getValue()));
+            typeAnalysis.addElement(elementAnalysis);
         }
-        return arrayList;
+        return typeAnalysis;
     }
+//    public ArrayList<String> detailsToString() {
+//        ArrayList<String> arrayList = new ArrayList<String>();
+//        for (ElementDetail ed : details) {
+//            arrayList.add(ed.toString());
+//        }
+//        return arrayList;
+//    }
+
 
 }

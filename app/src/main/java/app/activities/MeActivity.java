@@ -2,16 +2,24 @@ package app.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 
+import app.delegates.SharedPreferenceDelegate;
 import app.tabsample.R;
 
 
 public class MeActivity extends Activity {
+    private SharedPreferenceDelegate sharedPreferenceDelegate = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
+        sharedPreferenceDelegate = new SharedPreferenceDelegate(this);
+    }
+
+    public void clearAllData(View view) {
+        this.sharedPreferenceDelegate.clearAllData();
     }
 
 
