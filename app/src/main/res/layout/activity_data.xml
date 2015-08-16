@@ -4,19 +4,30 @@
     android:layout_width="fill_parent"
     android:orientation="vertical">
 
-    <Button xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/button_data_more"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="more"
-        android:onClick="showMenuPage" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal">
+
+        <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/button_data_more"
+            android:background="@android:color/holo_blue_bright"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="more"
+            android:onClick="showMenuPage" />
+
+        <TextView
+            android:id="@+id/textView_activity_data_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="测试" />
+    </LinearLayout>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/data_activity_layout"
         android:layout_height="fill_parent"
         android:layout_width="fill_parent">
-
 
 
     </FrameLayout>

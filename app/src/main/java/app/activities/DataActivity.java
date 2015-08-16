@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -43,18 +44,22 @@ public class DataActivity extends Activity {
         LinearLayout history = (LinearLayout) inflateLayout(R.layout.activity_data_history);
         addToFrame(history);
         populateListViewHistory();
+        setTitle(FSConst.TITLE_HISTORY);
     }
 
     public void showBreastMilk(View view) {
         showTypeAnalysis(FSConst.TYPE_BREAST_MILK);
+        setTitle(FSConst.TITLE_BREAST_MILK);
     }
 
     public void showMilkPowder(View view) {
         showTypeAnalysis(FSConst.TYPE_MILK_POWDER);
+        setTitle(FSConst.TITLE_MILK_POWDER);
     }
 
     public void showSupplementaryFood(View view) {
         showTypeAnalysis(FSConst.TYPE_SUPPLEMENTARY_FOOD);
+        setTitle(FSConst.TITLE_SUPPLEMENTARY_FOOD);
     }
 
     public void showTypeAnalysis(String typeName) {
@@ -104,5 +109,10 @@ public class DataActivity extends Activity {
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.data_activity_layout);
         frameLayout.removeAllViewsInLayout();
         frameLayout.addView(view);
+    }
+
+    private void setTitle(String titleStr) {
+        TextView title = (TextView) findViewById(R.id.textView_activity_data_title);
+        title.setText(titleStr);
     }
 }

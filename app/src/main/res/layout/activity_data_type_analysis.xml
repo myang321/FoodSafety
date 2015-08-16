@@ -5,11 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="母乳"
-        android:layout_width="fill_parent"
-        android:layout_height="30dp" />
-
     <ListView
         android:id="@+id/listview_type_analysis"
         android:background="@android:color/black"

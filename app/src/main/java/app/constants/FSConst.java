@@ -33,4 +33,9 @@ public class FSConst {
     public static String JSON_ELEMENT_RESULT_DATE = "date";
     public static String JSON_ELEMENT_RESULT_VALUE = "value";
 
+    public static String TITLE_HISTORY = "历史";
+    public static String TITLE_BREAST_MILK = "母乳";
+    public static String TITLE_MILK_POWDER = "奶粉";
+    public static String TITLE_SUPPLEMENTARY_FOOD = "辅食";
+
 }
