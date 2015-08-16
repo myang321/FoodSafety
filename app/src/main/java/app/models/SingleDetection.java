@@ -18,7 +18,7 @@ public class SingleDetection {
 
     @Override
     public String toString() {
-        return Util.dateToStringShort(date) + ": " + this.detectionType;
+        return Util.dateToStringShortWithYear(date) + ": " + this.detectionType;
     }
 
     public Date getDate() {

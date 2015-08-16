@@ -33,4 +33,10 @@ public class Util {
         return str;
     }
 
+    public static String dateToStringShortWithYear(Date date) {
+        DateFormat df = new SimpleDateFormat("yyyy.MM.dd");
+        String str = df.format(date);
+        return str;
+    }
+
 }
