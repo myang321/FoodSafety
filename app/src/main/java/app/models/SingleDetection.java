@@ -3,6 +3,7 @@ package app.models;
 import java.util.ArrayList;
 import java.util.Date;
 
+import app.constants.FSConst;
 import app.delegates.Util;
 
 /**
@@ -25,8 +26,38 @@ public class SingleDetection {
         return date;
     }
 
+    public String getDateShort() {
+        return Util.dateToStringShort(this.date);
+    }
+
+    public String getDateShortWithYear() {
+        return Util.dateToStringShortWithYear(this.date);
+    }
+
     public String getDetectionType() {
         return detectionType;
+    }
+
+    public String getDetectionTypeChinese() {
+        String chineseName = null;
+        if (detectionType.equals(FSConst.TYPE_BREAST_MILK))
+            chineseName = FSConst.TITLE_CHINESE_BREAST_MILK;
+        else if (detectionType.equals(FSConst.TYPE_MILK_POWDER))
+            chineseName = FSConst.TITLE_CHINESE_MILK_POWDER;
+        else if (detectionType.equals(FSConst.TYPE_SUPPLEMENTARY_FOOD))
+            chineseName = FSConst.TITLE_CHINESE_SUPPLEMENTARY_FOOD;
+        return chineseName;
+    }
+
+    public static String getSharedPrefName(String detectionType) {
+        String sharedPrefName = null;
+        if (detectionType.equals(FSConst.TYPE_BREAST_MILK))
+            sharedPrefName = FSConst.SHARED_PREF_BREAST_MILK;
+        else if (detectionType.equals(FSConst.TYPE_MILK_POWDER))
+            sharedPrefName = FSConst.SHARED_PREF_MILK_POWDER;
+        else if (detectionType.equals(FSConst.TYPE_SUPPLEMENTARY_FOOD))
+            sharedPrefName = FSConst.SHARED_PREF_SUPPLEMENTARY_FOOD;
+        return sharedPrefName;
     }
 
     public ArrayList<ElementDetail> getDetails() {

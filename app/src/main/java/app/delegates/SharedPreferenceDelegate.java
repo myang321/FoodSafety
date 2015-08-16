@@ -90,27 +90,17 @@ public class SharedPreferenceDelegate {
     public TypeAnalysis getTypeAnalysis(String typeName) {
         String defaultValue = "{ \"type\":\"%s\", \"details\":[ ] }";
         defaultValue = String.format(defaultValue, typeName);
-        String sharedPrefName = getSharedPrefName(typeName);
+        String sharedPrefName = SingleDetection.getSharedPrefName(typeName);
         String json = getSharedPrefsString(sharedPrefName, defaultValue);
         TypeAnalysis typeAnalysis = JsonParser.parseTypeAnalysis(json);
         return typeAnalysis;
     }
 
-    public String getSharedPrefName(String typeName) {
-        String sharedPrefName = null;
-        if (typeName.equals(FSConst.TYPE_BREAST_MILK))
-            sharedPrefName = FSConst.SHARED_PREF_BREAST_MILK;
-        else if (typeName.equals(FSConst.TYPE_MILK_POWDER))
-            sharedPrefName = FSConst.SHARED_PREF_MILK_POWDER;
-        else if (typeName.equals(FSConst.TYPE_SUPPLEMENTARY_FOOD))
-            sharedPrefName = FSConst.SHARED_PREF_SUPPLEMENTARY_FOOD;
-        return sharedPrefName;
-    }
 
     public void addToTypeAnalysis(TypeAnalysis typeAnalysis) {
         TypeAnalysis old = getTypeAnalysis(typeAnalysis.getTypeName());
         old.mergeTypeAnalysis(typeAnalysis);
-        setSharedPrefsString(getSharedPrefName(typeAnalysis.getTypeName()), old.toJson().toString());
+        setSharedPrefsString(SingleDetection.getSharedPrefName(typeAnalysis.getTypeName()), old.toJson().toString());
 
     }
 //    public static SharedPreferenceDelegate getInstance() {

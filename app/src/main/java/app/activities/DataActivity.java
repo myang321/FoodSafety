@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import app.adapter.HistoryAdapter;
 import app.constants.FSConst;
 import app.delegates.SharedPreferenceDelegate;
 import app.models.SingleDetection;
@@ -44,22 +45,22 @@ public class DataActivity extends Activity {
         LinearLayout history = (LinearLayout) inflateLayout(R.layout.activity_data_history);
         addToFrame(history);
         populateListViewHistory();
-        setTitle(FSConst.TITLE_HISTORY);
+        setTitle(FSConst.TITLE_CHINESE_HISTORY);
     }
 
     public void showBreastMilk(View view) {
         showTypeAnalysis(FSConst.TYPE_BREAST_MILK);
-        setTitle(FSConst.TITLE_BREAST_MILK);
+        setTitle(FSConst.TITLE_CHINESE_BREAST_MILK);
     }
 
     public void showMilkPowder(View view) {
         showTypeAnalysis(FSConst.TYPE_MILK_POWDER);
-        setTitle(FSConst.TITLE_MILK_POWDER);
+        setTitle(FSConst.TITLE_CHINESE_MILK_POWDER);
     }
 
     public void showSupplementaryFood(View view) {
         showTypeAnalysis(FSConst.TYPE_SUPPLEMENTARY_FOOD);
-        setTitle(FSConst.TITLE_SUPPLEMENTARY_FOOD);
+        setTitle(FSConst.TITLE_CHINESE_SUPPLEMENTARY_FOOD);
     }
 
     public void showTypeAnalysis(String typeName) {
@@ -88,9 +89,10 @@ public class DataActivity extends Activity {
     // list view for all detections
     private void populateListViewHistory() {
         ArrayList<SingleDetection> array = getDetectionList();
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.detection_list_item, R.id.textView1, array);
+//        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.detection_list_item, R.id.textView1, array);
+        HistoryAdapter historyAdapter = new HistoryAdapter(this, R.layout.listview_item_row_history, array);
         ListView lv1 = (ListView) this.findViewById(R.id.listview_data);
-        lv1.setAdapter(adapter);
+        lv1.setAdapter(historyAdapter);
     }
 
 
