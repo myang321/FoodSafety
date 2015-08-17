@@ -1,7 +1,5 @@
 package app.json;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -73,8 +71,8 @@ public class JsonParser {
 
         }
         SingleDetection sd = new SingleDetection(date, detectionType, details, obj.toString(), hashcode);
-        Log.d("meng", "in parseSingleDetection: new SingleDetection");
-        Log.d("meng", "SingleDetection hashcode:" + sd.hashCode());
+//        Log.d("meng", "in parseSingleDetection: new SingleDetection");
+//        Log.d("meng", "SingleDetection hashcode:" + sd.hashCode());
         return sd;
     }
 

@@ -2,7 +2,6 @@ package app.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +35,7 @@ public class HistoryAdapter extends ArrayAdapter<SingleDetection> {
         View row = convertView;
         MyHolder holder = null;
         if (row == null || row.getTag() == null) {
-            Log.d("meng2", "HistoryAdapter getView if");
+//            Log.d("meng2", "HistoryAdapter getView if");
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             row = inflater.inflate(this.resource, parent, false);
 
