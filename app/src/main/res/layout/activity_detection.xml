@@ -9,14 +9,24 @@
         android:id="@+id/detection_layer1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_bright"
+            android:textSize="32sp"
+            android:gravity="center"
+            android:textAlignment="gravity"
+            android:text="检测" />
 
         <app.TH_ProgressButton.MasterLayout
             android:id="@+id/MasterLayout01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:clickable="true"></app.TH_ProgressButton.MasterLayout>
     </LinearLayout>
+
+
 </FrameLayout>

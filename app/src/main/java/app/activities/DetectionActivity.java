@@ -32,14 +32,14 @@ public class DetectionActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detection);
         sharedPreferenceDelegate = new SharedPreferenceDelegate(this);
-
+        showDetectionButton();
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        showDetectionButton();
+
     }
 
     public void showDetectionButton() {
