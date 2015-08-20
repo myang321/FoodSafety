@@ -19,4 +19,6 @@ android {
 }
 dependencies {
     compile 'com.android.support:appcompat-v7:20.0.0'
+    // add dependency here
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.3'
 }

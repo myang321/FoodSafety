@@ -5,6 +5,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import app.constants.FSConst;
 import app.delegates.Util;
@@ -16,6 +18,11 @@ public class ElementAnalysis {
 
     private String elementName;
     private ArrayList<ElementResult> timeline;
+
+    public static int getLIMIT() {
+        return LIMIT;
+    }
+
     private static int LIMIT = 3;
 
     @Override
@@ -77,5 +84,27 @@ public class ElementAnalysis {
         return object;
 
     }
+
+    // limit the number of result
+    public ArrayList<ElementResult> getTimelineWithLimit() {
+        sortTimeline();
+        ArrayList<ElementResult> arrayList = new ArrayList<ElementResult>();
+        for (int i = 0; i < LIMIT && i < timeline.size(); i++) {
+            arrayList.add(0, timeline.get(i));
+        }
+        return arrayList;
+    }
+
+    public void sortTimeline() {
+        Collections.sort(this.timeline, new MyComparator());
+    }
+
+    class MyComparator implements Comparator<ElementResult> {
+        @Override
+        public int compare(ElementResult lhs, ElementResult rhs) {
+            return rhs.getDate().compareTo(lhs.getDate());
+        }
+    }
+
 }
 

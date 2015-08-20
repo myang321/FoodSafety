@@ -99,7 +99,7 @@ public class DetectionActivity extends Activity {
 //        ArrayList<String> array = sd.detailsToString();
         ArrayList<ElementDetail> array = sd.getDetails();
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.detection_list_item, R.id.textView1, array);
-        ListView lv1 = (ListView) this.findViewById(R.id.listview_history);
+        ListView lv1 = (ListView) this.findViewById(R.id.listview_detection_result);
         lv1.setAdapter(adapter);
     }
 

@@ -3,7 +3,6 @@ package app.activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import app.adapter.HistoryAdapter;
+import app.adapter.TypeAnalysisAdapter;
 import app.constants.FSConst;
 import app.delegates.SharedPreferenceDelegate;
 import app.models.SingleDetection;
@@ -64,8 +64,8 @@ public class DataActivity extends Activity {
     }
 
     public void showTypeAnalysis(String typeName) {
-        LinearLayout b_milk = (LinearLayout) inflateLayout(R.layout.activity_data_type_analysis);
-        addToFrame(b_milk);
+        LinearLayout linearLayout = (LinearLayout) inflateLayout(R.layout.activity_data_type_analysis);
+        addToFrame(linearLayout);
         populateListViewTypeAnalysis(typeName);
     }
 
@@ -91,7 +91,7 @@ public class DataActivity extends Activity {
         ArrayList<SingleDetection> array = getDetectionList();
 //        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.detection_list_item, R.id.textView1, array);
         HistoryAdapter historyAdapter = new HistoryAdapter(this, R.layout.listview_item_row_history, array);
-        ListView lv1 = (ListView) this.findViewById(R.id.listview_data);
+        ListView lv1 = (ListView) this.findViewById(R.id.listview_history);
         lv1.setAdapter(historyAdapter);
     }
 
@@ -102,7 +102,8 @@ public class DataActivity extends Activity {
 //        for (ElementAnalysis ea : typeAnalysis.getDetails()) {
 //            array.add(ea.toString());
 //        }
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.detection_list_item, R.id.textView1, typeAnalysis.getDetails());
+//        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.detection_list_item, R.id.textView1, typeAnalysis.getDetails());
+        TypeAnalysisAdapter adapter = new TypeAnalysisAdapter(this, R.layout.listview_item_row_type_analysis, typeAnalysis.getDetails());
         ListView lv1 = (ListView) this.findViewById(R.id.listview_type_analysis);
         lv1.setAdapter(adapter);
     }

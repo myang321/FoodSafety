@@ -15,7 +15,7 @@
         android:onClick="closeDetectionResult" />
 
     <ListView
-        android:id="@+id/listview_history"
+        android:id="@+id/listview_detection_result"
         android:background="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

@@ -3,10 +3,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView_history_date"
+        android:id="@+id/textView_type_analysis_element_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -16,15 +16,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp" />
 
-    <TextView
-        android:id="@+id/textView_history_type"
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line_chart_type_analysis"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:textStyle="bold"
-        android:textSize="22sp"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" />
-
+        android:layout_height="150dp" />
 </LinearLayout>
