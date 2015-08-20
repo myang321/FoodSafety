@@ -1,40 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/menu_circle_button_style"
         android:id="@+id/button_show_history"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
         android:text="历史"
         android:onClick="showHistory" />
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/menu_circle_button_style"
         android:id="@+id/button_show_breast_milk"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
         android:text="母乳"
-        android:onClick="showBreastMilk" />
+        android:onClick="showBreastMilk"
+        android:layout_toRightOf="@+id/button_show_history" />
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/menu_circle_button_style"
         android:id="@+id/button_show_milk_powder"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
         android:text="奶粉"
-        android:onClick="showMilkPowder" />
+        android:onClick="showMilkPowder"
+        android:layout_toRightOf="@+id/button_show_breast_milk" />
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/menu_circle_button_style"
         android:id="@+id/button_show_supplementary_food"
-        android:background="@android:color/holo_blue_bright"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
         android:text="副食"
-        android:onClick="showSupplementaryFood" />
+        android:onClick="showSupplementaryFood"
+        android:layout_toRightOf="@+id/button_show_milk_powder" />
 
-</LinearLayout>
+</RelativeLayout>

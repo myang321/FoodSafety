@@ -23,6 +23,7 @@ public class FSConst {
     // for class ElementDetail
     public static String JSON_ELEMENT_DETAIL_NAME = "name";
     public static String JSON_ELEMENT_DETAIL_VALUE = "value";
+    public static String JSON_ELEMENT_DETAIL_UNIT = "unit";
 
     public static String JSON_TYPE_ANALYSIS_TYPE = "type";
     public static String JSON_TYPE_ANALYSIS_DETAILS = "details";

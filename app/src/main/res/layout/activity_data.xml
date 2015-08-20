@@ -14,7 +14,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:onClick="showMenuPage"
-            android:src="@drawable/button_menu" />
+            android:background="@drawable/arrow" />
 
         <TextView
             android:id="@+id/textView_activity_data_title"

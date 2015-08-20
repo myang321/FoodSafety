@@ -1,7 +1,12 @@
 package app.models;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import app.constants.FSConst;
 import app.delegates.Util;
@@ -14,7 +19,7 @@ public class SingleDetection {
     private Date date;
     private String detectionType;
     private ArrayList<ElementDetail> details;
-    private String jsonData;
+    //    private String jsonData;
     private int myHashCode;
 
     @Override
@@ -64,23 +69,32 @@ public class SingleDetection {
         return details;
     }
 
-    public String getJsonData() {
-        return jsonData;
-    }
+//    public String getJsonData() {
+//        return jsonData;
+//    }
 
-    public SingleDetection(String detectionType, ArrayList<ElementDetail> details, String jsonData, int myHashCode) {
-        this.date = new Date();
+    public SingleDetection(String detectionType, ArrayList<ElementDetail> details) {
         this.detectionType = detectionType;
         this.details = details;
-        this.jsonData = jsonData;
+
+        this.date = new Date();
+        this.myHashCode = this.hashCode();
+//        this.jsonData = jsonData;
 //        if (myHashCode == 0)
 //            myHashCode = hashCode();
-        this.myHashCode = myHashCode;
     }
 
-    public SingleDetection(Date date, String detectionType, ArrayList<ElementDetail> details, String jsonData, int myHashCode) {
-        this(detectionType, details, jsonData, myHashCode);
+    // not hashcode
+//    public SingleDetection(Date date, String detectionType, ArrayList<ElementDetail> details) {
+//        this(detectionType, details);
+//        this.date = date;
+//
+//    }
+    // parse from file, has hashcode, date
+    public SingleDetection(String detectionType, ArrayList<ElementDetail> details, int myHashCode, Date date) {
+        this(detectionType, details);
         this.date = date;
+        this.myHashCode = myHashCode;
     }
 
     public TypeAnalysis toTypeAnalysis() {
@@ -98,6 +112,43 @@ public class SingleDetection {
 //        }
 //        return arrayList;
 //    }
+
+    private static String getRandomType() {
+        ArrayList<String> type = new ArrayList<String>();
+        type.add(FSConst.TYPE_BREAST_MILK);
+        type.add(FSConst.TYPE_MILK_POWDER);
+        type.add(FSConst.TYPE_SUPPLEMENTARY_FOOD);
+        Random rand = new Random();
+        int randomNum = rand.nextInt(3);
+        return type.get(randomNum);
+    }
+
+    public static SingleDetection getRandom() {
+        String type = getRandomType();
+        SingleDetection sd = new SingleDetection(type, ElementDetail.getRandomDetails(type));
+        return sd;
+    }
+
+    public JSONObject toJson() {
+        JSONObject object = new JSONObject();
+        try {
+            object.put(FSConst.JSON_SINGLE_DETECTION_TYPE, this.getDetectionType());
+            object.put(FSConst.JSON_SINGLE_DETECTION_DATE, Util.dateToString(this.getDate()));
+            object.put(FSConst.JSON_SINGLE_DETECTION_HASHCODE, this.myHashCode);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JSONArray detailsJson = new JSONArray();
+        for (ElementDetail ed : details) {
+            detailsJson.put(ed.toJson());
+        }
+        try {
+            object.put(FSConst.JSON_SINGLE_DETECTION_DETAIL, detailsJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
 
 
 }

@@ -70,7 +70,7 @@ public class JsonParser {
             }
 
         }
-        SingleDetection sd = new SingleDetection(date, detectionType, details, obj.toString(), hashcode);
+        SingleDetection sd = new SingleDetection(detectionType, details, hashcode, date);
 //        Log.d("meng", "in parseSingleDetection: new SingleDetection");
 //        Log.d("meng", "SingleDetection hashcode:" + sd.hashCode());
         return sd;

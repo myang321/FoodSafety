@@ -48,13 +48,13 @@ public class TypeAnalysisAdapter extends ArrayAdapter<ElementAnalysis> {
             row = inflater.inflate(this.resource, parent, false);
 
             holder = new MyHolder();
-//            holder.textViewElementName = (TextView) row.findViewById(R.id.textView_type_analysis_element_name);
+            holder.textViewElementName = (TextView) row.findViewById(R.id.textView_type_analysis_element_name);
             holder.lineChart = (LineChart) row.findViewById(R.id.line_chart_type_analysis);
         } else {
             holder = (MyHolder) row.getTag();
         }
         ElementAnalysis elementAnalysis = this.data.get(position);
-//        holder.textViewElementName.setText(elementAnalysis.getElementName());
+        holder.textViewElementName.setText(elementAnalysis.getElementName());
         populateLineChart(holder.lineChart, elementAnalysis);
         return row;
     }
@@ -64,7 +64,8 @@ public class TypeAnalysisAdapter extends ArrayAdapter<ElementAnalysis> {
         ArrayList<ElementResult> arrayList = elementAnalysis.getTimelineWithLimit();
         ArrayList<String> xLabels = new ArrayList<String>();
         for (int i = 0; i < arrayList.size(); i++) {
-            vals.add(new Entry((float) arrayList.get(i).getValue(), i));
+            float value = Util.round(arrayList.get(i).getValue());
+            vals.add(new Entry(value, i));
             xLabels.add(Util.dateToStringShort(arrayList.get(i).getDate()));
         }
         LineDataSet lineDataSet = new LineDataSet(vals, elementAnalysis.getElementName());

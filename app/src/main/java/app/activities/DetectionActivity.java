@@ -10,12 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import app.TH_ProgressButton.MasterLayout;
 import app.delegates.SharedPreferenceDelegate;
-import app.delegates.Util;
-import app.json.JsonParser;
 import app.models.ElementDetail;
 import app.models.SingleDetection;
 import app.models.TypeAnalysis;
@@ -88,7 +85,7 @@ public class DetectionActivity extends Activity {
 //    }
 
     public void saveDetectionResult(SingleDetection sd) {
-        sharedPreferenceDelegate.addToDetectionList(sd.getJsonData());
+        sharedPreferenceDelegate.addToDetectionList(sd.toJson().toString());
         TypeAnalysis typeAnalysis = sd.toTypeAnalysis();
         sharedPreferenceDelegate.addToTypeAnalysis(typeAnalysis);
     }
@@ -136,9 +133,10 @@ public class DetectionActivity extends Activity {
 
         @Override
         protected SingleDetection doInBackground(Void... params) {
-            String json = "{ \"date\":\"%s\", \"type\":\"breast_milk\", \"detail\":[ { \"name\":\"ruqing_protein\", \"value\":1.5 }, { \"name\":\"lao_protein\", \"value\":1.5 }, { \"name\":\"rutie_protein\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_slga\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_igg1\", \"value\":1.5 }, { \"name\":\"folic_acid\", \"value\":1.5 } ] }";
-            json = String.format(json, Util.dateToString(new Date()));
-            SingleDetection sd = JsonParser.parseSingleDetection(json);
+//            String json = "{ \"date\":\"%s\", \"type\":\"breast_milk\", \"detail\":[ { \"name\":\"ruqing_protein\", \"value\":1.5 }, { \"name\":\"lao_protein\", \"value\":1.5 }, { \"name\":\"rutie_protein\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_slga\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_igg1\", \"value\":1.5 }, { \"name\":\"folic_acid\", \"value\":1.5 } ] }";
+//            json = String.format(json, Util.dateToString(new Date()));
+//            SingleDetection sd = JsonParser.parseSingleDetection(json);
+            SingleDetection sd = SingleDetection.getRandom();
             for (int i = 0; i <= 100; i++) {
                 try {
                     Thread.sleep(30);

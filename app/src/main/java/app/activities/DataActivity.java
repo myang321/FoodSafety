@@ -34,7 +34,7 @@ public class DataActivity extends Activity {
 
     public void showMenuPage(View view) {
         // inflate listView
-        LinearLayout data_menu = (LinearLayout) inflateLayout(R.layout.activity_data_menu);
+        View data_menu = inflateLayout(R.layout.activity_data_menu);
         // add to frameLayout
 //        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.data_activity_layout);
 //        frameLayout.addView(data_menu);

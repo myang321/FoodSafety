@@ -1,10 +1,12 @@
 package app.delegates;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.text.DateFormat;
-import java.sql.Timestamp;
 
 /**
  * Created by Steve on 8/11/2015.
@@ -37,6 +39,10 @@ public class Util {
         DateFormat df = new SimpleDateFormat("yyyy.MM.dd");
         String str = df.format(date);
         return str;
+    }
+
+    public static float round(double val) {
+        return new BigDecimal(val).setScale(1, RoundingMode.HALF_UP).floatValue();
     }
 
 }
