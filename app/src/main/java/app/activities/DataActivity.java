@@ -18,9 +18,7 @@ import app.models.SingleDetection;
 import app.models.TypeAnalysis;
 import app.tabsample.R;
 
-/**
- * @author Adil Soomro
- */
+
 public class DataActivity extends Activity {
     private SharedPreferenceDelegate sharedPreferenceDelegate = null;
 

@@ -18,9 +18,7 @@ import app.models.SingleDetection;
 import app.models.TypeAnalysis;
 import app.tabsample.R;
 
-/**
- * @author Adil Soomro
- */
+
 public class DetectionActivity extends Activity {
     private SharedPreferenceDelegate sharedPreferenceDelegate = null;
     static MasterLayout masterLayout;   //Should be static
@@ -29,8 +27,7 @@ public class DetectionActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detection);
         sharedPreferenceDelegate = new SharedPreferenceDelegate(this);
-        showDetectionButton();
-
+        showMainView();
     }
 
     @Override
@@ -39,7 +36,7 @@ public class DetectionActivity extends Activity {
 
     }
 
-    public void showDetectionButton() {
+    public void setDetectionButton() {
         masterLayout = (MasterLayout) findViewById(R.id.MasterLayout01);
         masterLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,8 +106,28 @@ public class DetectionActivity extends Activity {
     }
 
     public void closeDetectionResult(View view) {
+        showMainView();
+    }
+
+    public void showMainView() {
+        LinearLayout main = (LinearLayout) inflateLayout(R.layout.activity_detection_main);
+        addToFrame(main);
+        setDetectionButton();
+    }
+
+    public void showDetectionResult(SingleDetection sd) {
+        // inflate listView
+        LinearLayout detection_list = (LinearLayout) inflateLayout(R.layout.detections_detail);
+        // add to frameLayout
+        addToFrame(detection_list);
+        saveDetectionResult(sd);
+        populateListView(sd);
+    }
+
+    private void addToFrame(View view) {
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.detection_activity_layout);
-        frameLayout.removeViewAt(1);
+        frameLayout.removeAllViewsInLayout();
+        frameLayout.addView(view);
     }
 
     protected class ReceiveDetectionResultAsynTask extends AsyncTask<Void, Integer, SingleDetection> {
@@ -123,13 +140,7 @@ public class DetectionActivity extends Activity {
         @Override
         protected void onPostExecute(SingleDetection sd) {
             super.onPostExecute(sd);
-            // inflate listView
-            LinearLayout detection_list = (LinearLayout) inflateLayout(R.layout.detections_detail);
-            // add to frameLayout
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.detection_activity_layout);
-            frameLayout.addView(detection_list);
-            saveDetectionResult(sd);
-            populateListView(sd);
+            showDetectionResult(sd);
         }
 
         @Override
