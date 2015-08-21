@@ -1,5 +1,7 @@
 package app.models;
 
+import android.app.Activity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -123,9 +125,9 @@ public class SingleDetection {
         return type.get(randomNum);
     }
 
-    public static SingleDetection getRandom() {
+    public static SingleDetection getRandom(Activity activity) {
         String type = getRandomType();
-        SingleDetection sd = new SingleDetection(type, ElementDetail.getRandomDetails(type));
+        SingleDetection sd = new SingleDetection(type, ElementDetail.getRandomDetails(type, activity));
         return sd;
     }
 

@@ -34,9 +34,22 @@ public class FSConst {
     public static String JSON_ELEMENT_RESULT_DATE = "date";
     public static String JSON_ELEMENT_RESULT_VALUE = "value";
 
+    public static String JSON_TYPE_STANDARD_ARRAY = "array";
+    public static String JSON_TYPE_STANDARD_TYPE = "type";
+
+    public static String JSON_ELEMENT_STANDARD_NAME = "name";
+    public static String JSON_ELEMENT_STANDARD_VALUE = "goal_value";
+    public static String JSON_ELEMENT_STANDARD_GOAL_TYPE = "goal_type";
+
     public static String TITLE_CHINESE_HISTORY = "历史";
     public static String TITLE_CHINESE_BREAST_MILK = "母乳";
     public static String TITLE_CHINESE_MILK_POWDER = "奶粉";
     public static String TITLE_CHINESE_SUPPLEMENTARY_FOOD = "辅食";
+
+    public static String GOAL_TYPE_GREATER_THAN_WORD = "gt";
+    public static String GOAL_TYPE_LESS_THAN_WORD = "lt";
+
+    public static String GOAL_TYPE_GREATER_THAN_SIGN = ">";
+    public static String GOAL_TYPE_LESS_THAN_SIGN = "<";
 
 }

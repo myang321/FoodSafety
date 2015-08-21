@@ -1,0 +1,30 @@
+{  
+   "type":"supplementary_food",
+   "array":[  
+      {  
+         "name":"抗生素",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"农药残留",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"黄曲霉毒素M1",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"蛋白质",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"叶酸",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      }
+   ]
+}

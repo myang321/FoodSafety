@@ -1,5 +1,8 @@
 package app.models;
 
+import android.app.Activity;
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -8,6 +11,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import app.constants.FSConst;
+import app.delegates.Util;
 
 /**
  * Created by Steve on 8/11/2015.
@@ -16,6 +20,9 @@ public class ElementDetail {
     private String name;
     private double value;
     private String unit;
+    // transient
+    private double goalValue;
+    private String goalType;
 
     private static double getRandomValue(double rangeMin, double rangeMax) {
         Random r = new Random();
@@ -23,9 +30,10 @@ public class ElementDetail {
         return randomValue;
     }
 
-    public static ArrayList<ElementDetail> getRandomDetails(String detectionType) {
+    public static ArrayList<ElementDetail> getRandomDetails(String detectionType, Activity activity) {
         ArrayList<String> array = new ArrayList<String>();
         ArrayList<ElementDetail> details = new ArrayList<ElementDetail>();
+        TypeStandard typeStandard = TypeStandard.getInstance(detectionType, activity);
         if (detectionType.equals(FSConst.TYPE_BREAST_MILK)) {
             String[] strs = {"乳清蛋白", "酪蛋白", "乳铁蛋白", "免疫球蛋白SIgA", "免疫球蛋白IgG1", "叶酸"};
             array.addAll(Arrays.asList(strs));
@@ -37,7 +45,9 @@ public class ElementDetail {
             array.addAll(Arrays.asList(strs));
         }
         for (String elementType : array) {
-            ElementDetail ed = new ElementDetail(elementType, getRandomValue(1, 5), "mg");
+            double goalValue = typeStandard.getGoalValue(elementType);
+            String goalType = typeStandard.getGoalType(elementType);
+            ElementDetail ed = new ElementDetail(elementType, getRandomValue(1, 5), "mg", goalValue, goalType);
             details.add(ed);
         }
         return details;
@@ -49,10 +59,23 @@ public class ElementDetail {
         return name + ": " + valueStr + unit;
     }
 
-    public ElementDetail(String name, double value, String unit) {
+    public ElementDetail(String name, double value, String unit, double goalValue, String goalType) {
         this.name = name;
         this.value = value;
         this.unit = unit;
+
+        this.goalValue = goalValue;
+        this.goalType = goalType;
+        if (this.goalType == null)
+            Log.d("meng", "in ElementDetail constructor, goalType is null,name=" + name);
+    }
+
+    public double getGoalValue() {
+        return goalValue;
+    }
+
+    public String getGoalType() {
+        return goalType;
     }
 
     public String getName() {
@@ -61,6 +84,26 @@ public class ElementDetail {
 
     public double getValue() {
         return value;
+    }
+
+    public String getValueStr() {
+        String valueStr = String.format("%.1f", value);
+        return valueStr;
+    }
+
+    public String getValueWithUnit() {
+        String str = getValueStr() + unit;
+        return str;
+    }
+
+    public String getValueWithGoal() {
+        String sign = "";
+        if (goalType.equals(FSConst.GOAL_TYPE_GREATER_THAN_WORD))
+            sign = FSConst.GOAL_TYPE_GREATER_THAN_SIGN;
+        else if (goalType.equals(FSConst.GOAL_TYPE_LESS_THAN_WORD))
+            sign = FSConst.GOAL_TYPE_LESS_THAN_SIGN;
+        String str = Util.round(value) + unit + sign + goalValue + unit;
+        return str;
     }
 
     public String getUnit() {

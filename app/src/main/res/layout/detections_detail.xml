@@ -16,8 +16,8 @@
 
     <ListView
         android:id="@+id/listview_detection_result"
-        android:background="@android:color/black"
-        android:layout_width="wrap_content"
+        android:background="@android:color/white"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

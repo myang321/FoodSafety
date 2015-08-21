@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -12,6 +11,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import app.TH_ProgressButton.MasterLayout;
+import app.adapter.DetectionResultAdapter;
 import app.delegates.SharedPreferenceDelegate;
 import app.models.ElementDetail;
 import app.models.SingleDetection;
@@ -95,7 +95,8 @@ public class DetectionActivity extends Activity {
     public void populateListView(SingleDetection sd) {
 //        ArrayList<String> array = sd.detailsToString();
         ArrayList<ElementDetail> array = sd.getDetails();
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.detection_list_item, R.id.textView1, array);
+//        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.detection_list_item, R.id.textView1, array);
+        DetectionResultAdapter adapter = new DetectionResultAdapter(this, R.layout.listview_item_row_detection_detail, array);
         ListView lv1 = (ListView) this.findViewById(R.id.listview_detection_result);
         lv1.setAdapter(adapter);
     }
@@ -136,7 +137,7 @@ public class DetectionActivity extends Activity {
 //            String json = "{ \"date\":\"%s\", \"type\":\"breast_milk\", \"detail\":[ { \"name\":\"ruqing_protein\", \"value\":1.5 }, { \"name\":\"lao_protein\", \"value\":1.5 }, { \"name\":\"rutie_protein\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_slga\", \"value\":1.5 }, { \"name\":\"mianyiqiu_protein_igg1\", \"value\":1.5 }, { \"name\":\"folic_acid\", \"value\":1.5 } ] }";
 //            json = String.format(json, Util.dateToString(new Date()));
 //            SingleDetection sd = JsonParser.parseSingleDetection(json);
-            SingleDetection sd = SingleDetection.getRandom();
+            SingleDetection sd = SingleDetection.getRandom(DetectionActivity.this);
             for (int i = 0; i <= 100; i++) {
                 try {
                     Thread.sleep(30);

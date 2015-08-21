@@ -1,0 +1,35 @@
+{  
+   "type":"milk_powder",
+   "array":[  
+      {  
+         "name":"酪蛋白",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"乳铁蛋白",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"三聚氰胺",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"黄曲霉毒素M1",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"β-内酰胺类抗生素",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"磺胺类抗生素",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      }
+   ]
+}

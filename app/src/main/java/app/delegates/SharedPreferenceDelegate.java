@@ -62,14 +62,14 @@ public class SharedPreferenceDelegate {
         return value;
     }
 
-    public ArrayList<SingleDetection> getDetectionList() {
+    public ArrayList<SingleDetection> getDetectionList(Activity activity) {
         Log.d("meng", "call getDetectionList");
         Set<String> value = this.getSharedPrefsStringSet(FSConst.SHARED_PREF_HISTORY, null);
         ArrayList<SingleDetection> result = new ArrayList<SingleDetection>();
         if (value == null)
             return result;
         for (String s : value) {
-            SingleDetection sd = JsonParser.parseSingleDetection(s);
+            SingleDetection sd = JsonParser.parseSingleDetection(s, activity);
             result.add(sd);
         }
         Log.d("meng", "getDetectionList size:" + result.size());

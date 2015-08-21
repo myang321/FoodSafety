@@ -1,0 +1,35 @@
+{  
+   "type":"breast_milk",
+   "array":[  
+      {  
+         "name":"乳清蛋白",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"酪蛋白",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"乳铁蛋白",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"免疫球蛋白SIgA",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"免疫球蛋白IgG1",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      },
+      {  
+         "name":"叶酸",
+         "goal_value":1.5,
+         "goal_type":"gt"
+      }
+   ]
+}
