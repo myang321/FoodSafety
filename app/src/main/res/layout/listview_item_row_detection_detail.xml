@@ -14,7 +14,6 @@
         android:gravity="center" />
 
     <TextView
-        android:id="@+id/textView_detection_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="22sp"
@@ -28,9 +27,16 @@
         android:gravity="center"
         android:textSize="22sp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="营养建议" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="营养建议"
+            android:layout_centerInParent="true"
+            android:onClick="showNutritionSuggestion" />
+    </RelativeLayout>
 
 </LinearLayout>

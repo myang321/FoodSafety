@@ -23,7 +23,7 @@ public class ElementAnalysis {
         return LIMIT;
     }
 
-    private static int LIMIT = 3;
+    private static int LIMIT = 5;
 
     @Override
     public String toString() {

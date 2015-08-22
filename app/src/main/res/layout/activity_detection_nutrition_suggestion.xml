@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView_food_therapy"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="食疗"
+                android:textSize="32sp" />
+
+            <Button
+                style="@style/menu_circle_button_style"
+                android:id="@+id/button_food_therapy1"
+                android:text="白菜"
+                android:layout_below="@+id/textView_food_therapy" />
+
+            <Button
+                style="@style/menu_circle_button_style"
+                android:id="@+id/button_food_therapy2"
+                android:text="猪肉"
+                android:layout_below="@+id/textView_food_therapy"
+                android:layout_toRightOf="@+id/button_food_therapy1" />
+
+            <Button
+                style="@style/menu_circle_button_style"
+                android:id="@+id/button_food_therapy3"
+                android:text="鱼"
+                android:layout_below="@+id/textView_food_therapy"
+                android:layout_toRightOf="@+id/button_food_therapy2" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/textView_nourishment"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="营养品"
+                android:textSize="32sp" />
+
+            <Button
+                style="@style/menu_circle_button_style"
+                android:id="@+id/button_nourishment1"
+                android:text="维C"
+                android:layout_below="@+id/textView_nourishment" />
+
+            <Button
+                style="@style/menu_circle_button_style"
+                android:id="@+id/button_nourishment2"
+                android:text="维B"
+                android:layout_below="@+id/textView_nourishment"
+                android:layout_toRightOf="@+id/button_nourishment1" />
+
+            <Button
+                style="@style/menu_circle_button_style"
+                android:id="@+id/button_nourishment3"
+                android:text="维A"
+                android:layout_below="@+id/textView_nourishment"
+                android:layout_toRightOf="@+id/button_nourishment2" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/textView_nutritionist"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="营养师"
+                android:textSize="32sp" />
+
+            <Button
+                style="@style/menu_circle_button_style"
+                android:id="@+id/button_nutritionist1"
+                android:text="小王"
+                android:layout_below="@+id/textView_nutritionist" />
+
+            <Button
+                style="@style/menu_circle_button_style"
+                android:id="@+id/button_nutritionist2"
+                android:text="小李"
+                android:layout_below="@+id/textView_nutritionist"
+                android:layout_toRightOf="@+id/button_nutritionist1" />
+
+            <Button
+                style="@style/menu_circle_button_style"
+                android:id="@+id/button_nutritionist3"
+                android:text="小张"
+                android:layout_below="@+id/textView_nutritionist"
+                android:layout_toRightOf="@+id/button_nutritionist2" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="x"
+            android:onClick="closeNutritionSuggestion"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+</FrameLayout>

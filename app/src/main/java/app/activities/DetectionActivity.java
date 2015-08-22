@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -87,6 +88,17 @@ public class DetectionActivity extends Activity {
         sharedPreferenceDelegate.addToTypeAnalysis(typeAnalysis);
     }
 
+    public void closeNutritionSuggestion(View view) {
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.detection_activity_layout);
+        frameLayout.removeViewAt(1);
+    }
+
+    public void showNutritionSuggestion(View view) {
+        FrameLayout detection_list = (FrameLayout) inflateLayout(R.layout.activity_detection_nutrition_suggestion);
+        // add to frameLayout
+        addToFrame(detection_list);
+    }
+
     // need to be called after inflate listview_history, and add it to activity
     // listview for a single detection, all elements
     public void populateListView(SingleDetection sd) {
@@ -111,23 +123,40 @@ public class DetectionActivity extends Activity {
 
     public void showMainView() {
         LinearLayout main = (LinearLayout) inflateLayout(R.layout.activity_detection_main);
-        addToFrame(main);
+        replaceFrame(main);
         setDetectionButton();
+        clearTitle();
     }
 
     public void showDetectionResult(SingleDetection sd) {
         // inflate listView
-        LinearLayout detection_list = (LinearLayout) inflateLayout(R.layout.detections_detail);
+        LinearLayout detection_list = (LinearLayout) inflateLayout(R.layout.activity_detections_detail);
         // add to frameLayout
-        addToFrame(detection_list);
+        replaceFrame(detection_list);
         saveDetectionResult(sd);
         populateListView(sd);
+        setTitle(sd.getDetectionTypeChinese());
     }
 
     private void addToFrame(View view) {
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.detection_activity_layout);
+        frameLayout.addView(view);
+    }
+
+    private void replaceFrame(View view) {
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.detection_activity_layout);
         frameLayout.removeAllViewsInLayout();
         frameLayout.addView(view);
+    }
+
+    public void clearTitle() {
+        TextView title = (TextView) findViewById(R.id.textView_detection_activity_title);
+        title.setText("检测");
+    }
+
+    public void setTitle(String type) {
+        TextView title = (TextView) findViewById(R.id.textView_detection_activity_title);
+        title.setText("检测-" + type);
     }
 
     protected class ReceiveDetectionResultAsynTask extends AsyncTask<Void, Integer, SingleDetection> {
