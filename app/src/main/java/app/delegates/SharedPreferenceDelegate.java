@@ -19,10 +19,12 @@ import app.models.TypeAnalysis;
  */
 public class SharedPreferenceDelegate {
 
-    private static SharedPreferences sharedPref = null;
+    private SharedPreferences sharedPref = null;
+    private Activity activity = null;
 
     // constructor
     public SharedPreferenceDelegate(Activity activity) {
+        this.activity = activity;
         this.sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
     }
 
@@ -62,7 +64,7 @@ public class SharedPreferenceDelegate {
         return value;
     }
 
-    public ArrayList<SingleDetection> getDetectionList(Activity activity) {
+    public ArrayList<SingleDetection> getDetectionList() {
         Log.d("meng", "call getDetectionList");
         Set<String> value = this.getSharedPrefsStringSet(FSConst.SHARED_PREF_HISTORY, null);
         ArrayList<SingleDetection> result = new ArrayList<SingleDetection>();

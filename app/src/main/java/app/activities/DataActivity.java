@@ -81,7 +81,7 @@ public class DataActivity extends Activity {
     }
 
     private ArrayList<SingleDetection> getDetectionList() {
-        return sharedPreferenceDelegate.getDetectionList(this);
+        return sharedPreferenceDelegate.getDetectionList();
     }
 
     // list view for all detections

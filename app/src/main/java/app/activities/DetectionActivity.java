@@ -1,6 +1,7 @@
 package app.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class DetectionActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        startService();
         setContentView(R.layout.activity_detection);
         sharedPreferenceDelegate = new SharedPreferenceDelegate(this);
         showMainView();
@@ -35,6 +37,11 @@ public class DetectionActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
+    }
+
+    private void startService() {
+        Intent intent = new Intent(this, MyService.class);
+        this.startService(intent);
     }
 
     public void setDetectionButton() {

@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, TabSample!</string>
-    <string name="app_name">Tab Sample</string>
+    <string name="app_name">Food Safety</string>
 
     <string-array name="Spinner_Content">
         <item>One</item>
